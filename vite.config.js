@@ -8,4 +8,14 @@ export default defineConfig({
     react(),
     tailwindcss()
   ],
+  theme: {
+    extend: {
+      colors: {
+        majorelle: {
+          blue: '#6050DC',
+          yellow: '#FFD700',
+        }
+      }
+    }
+  }
 })

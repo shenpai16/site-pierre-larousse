@@ -17,6 +17,7 @@ export default function Navbar() {
           <a href="/" className="hover:text-[#FFD700] transition">Accueil</a>
           <a href="/about" className="hover:text-[#FFD700] transition">À propos</a>
           <a href="/vie-scolaire" className="hover:text-[#FFD700] transition">Vie scolaire</a>
+          <a href="/segpa" className="hover:text-[#FFD700] transition">Segpa</a>
           <a href="/contact" className="hover:text-[#FFD700] transition">Contact</a>
         </nav>
 

@@ -12,7 +12,8 @@ const images = [
 
 export default function HeroSwiper() {
   return (
-    <div className="relative w-full h-[60vh] md:h-[80vh]">
+    <div className="relative w-full h-[60vh] md:h-[80vh] border-b-8 border-[#1A4C8B]">
+
       <Swiper
         modules={[Autoplay, Pagination, EffectFade]}
         effect="fade"
@@ -32,15 +33,19 @@ export default function HeroSwiper() {
         ))}
       </Swiper>
 
-      {/* Overlay text */}
-      <div className="absolute inset-0 flex flex-col items-center justify-center text-center text-white bg-black/30 z-10">
-        <h1 className="text-3xl md:text-5xl font-bold mb-2 text-[#FFD700]">
+      {/* Overlay dégradé premium */}
+      <div className="absolute inset-0 bg-gradient-to-b from-black/20 via-black/40 to-black/70 z-10"></div>
+
+      {/* Texte */}
+      <div className="absolute inset-0 flex flex-col items-center justify-center text-center z-20 px-4 animate-fadeIn">
+        <h1 className="text-4xl md:text-6xl font-extrabold text-[#FFD700] drop-shadow-[0_4px_6px_rgba(0,0,0,0.6)] tracking-wide">
           Bienvenue au Lycée Pierre Larousse
         </h1>
-        <p className="text-lg md:text-2xl font-medium">
+        <p className="text-lg md:text-2xl text-white mt-4 drop-shadow-[0_3px_4px_rgba(0,0,0,0.6)]">
           Welcome to the school Pierre Larousse
         </p>
       </div>
+
     </div>
   );
 }

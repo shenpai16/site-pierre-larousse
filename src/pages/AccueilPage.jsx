@@ -2,9 +2,46 @@ import HeroSwiper from "../components/heroSwiper";
 import FlipCards from "../components/FlipCards";
 import InstagramFeed from "../components/InstagramFeed";
 
+import { useEffect, useState } from "react";
+
+
+
 export default function AccueilPage() {
+
+    const [activeSection, setActiveSection] = useState("Accueil");
+
+    useEffect(() => {
+    const handleScroll = () => {
+        const sections = document.querySelectorAll("[data-section]");
+        let current = "Accueil";
+
+        sections.forEach((section) => {
+        const rect = section.getBoundingClientRect();
+        if (rect.top <= window.innerHeight * 0.4 && rect.bottom >= window.innerHeight * 0.4) {
+            current = section.getAttribute("data-section");
+        }
+        });
+
+        setActiveSection(current);
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+    }, []);
+
   return (
     <main className="w-full bg-[#F9FAFB]">
+
+    {/* Colonne verticale */}
+    <div className="fixed left-6 top-1/2 -translate-y-1/2 z-50 hidden lg:flex flex-col items-start gap-6">
+
+        <div className="text-[#1A4C8B] font-bold text-xl tracking-wide transition-all duration-300">
+            {activeSection}
+        </div>
+
+        <div className="w-1 h-24 bg-[#C57F2E] rounded-full transition-all duration-300"></div>
+
+    </div>
 
     {/* Hero */}
     <HeroSwiper />
@@ -22,7 +59,7 @@ export default function AccueilPage() {
     </section>
 
     {/* Nos sections / filieres */}
-    <section className="max-w-6xl mx-auto mt-28 mb-28 px-6">
+    <section data-section="Nos sections" className="max-w-6xl mx-auto mt-28 mb-28 px-6">
         <div className="w-20 h-1 bg-[#1A4C8B] mx-auto mb-12 rounded-full"></div>
         <h2 className="text-3xl font-bold text-[#C57F2E] text-center mb-12">
             Nos sections
@@ -38,7 +75,7 @@ export default function AccueilPage() {
     </section>     
 
     {/* Les valeurs du lycée */}
-    <section className="max-w-6xl mx-auto mt-32 mb-28 px-6">
+    <section data-section="Nos valeurs" className="max-w-6xl mx-auto mt-32 mb-28 px-6">
         <div className="w-20 h-1 bg-[#C57F2E] mx-auto mb-12 rounded-full"></div>
         <h2 className="text-3xl font-bold text-[#1A4C8B] text-center mb-16">
             Nos valeurs
@@ -73,7 +110,7 @@ export default function AccueilPage() {
     </section>
 
     {/* Actualités du lycée */}
-    <section className="max-w-6xl mx-auto mt-32 mb-28 px-6">
+    <section data-section="Actualités" className="max-w-6xl mx-auto mt-32 mb-28 px-6">
         <div className="w-20 h-1 bg-[#1A4C8B] mx-auto mb-12 rounded-full"></div>
         <h2 className="text-3xl font-bold text-[#C57F2E] text-center mb-16">
             Actualités
@@ -110,12 +147,14 @@ export default function AccueilPage() {
 
     {/* CTA Final */}
 
-    <section className="
-    mt-32 py-20 
-    bg-gradient-to-b from-[#1A4C8B] to-[#0f2f5c] 
-    text-center text-white 
-    animate-fadeIn
-    ">
+    <section 
+        className="
+        mt-32 py-20 
+        bg-gradient-to-b from-[#1A4C8B] to-[#0f2f5c] 
+        text-center text-white 
+        animate-fadeIn"
+        data-section="Contact" 
+        >
         <div className="w-20 h-1 bg-[#C57F2E] mx-auto mb-8 rounded-full"></div>
 
         <h2 className="text-3xl md:text-4xl font-bold mb-4 tracking-wide">

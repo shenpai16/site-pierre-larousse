@@ -1,26 +1,23 @@
-export default function FlipCards({ frontColor, backColor, icon, title, description }) {
+export default function FlipCards({ title, description, icon }) {
   return (
-    <div className="w-80 min-h-96 perspective mx-auto">
-      <div className="relative w-full h-full transition-transform duration-700 transform-style preserve-3d hover:rotate-y-180">
+    <div className="relative w-80 h-64 rounded-xl overflow-hidden shadow-lg group cursor-pointer bg-[#1A4C8B] border border-[#1A4C8B]/20 hover:shadow-2xl transition-all duration-300">
 
-        {/* Face avant */}
-        <div
-          className="absolute w-full h-full rounded-xl shadow-xl flex flex-col items-center justify-center text-[#FAF7F2] text-center px-6 backface-hidden border-2 border-[#C57F2E]"
-          style={{ backgroundColor: frontColor }}
-        >
-          <div className="text-5xl mb-4">{icon}</div>
-          <h3 className="text-2xl font-bold tracking-wide">{title}</h3>
-        </div>
+      {/* Bande dorée en haut */}
+      <div className="absolute top-0 left-0 w-full h-1 bg-[#C57F2E]"></div>
 
-        {/* Face arrière */}
-        <div
-          className="absolute w-full h-full rounded-xl shadow-xl flex items-center justify-center text-[#FAF7F2] text-center px-6 rotate-y-180 backface-hidden border-2 border-[#1A4C8B]"
-          style={{ backgroundColor: backColor }}
-        >
-          <p className="text-base leading-relaxed">{description}</p>
-        </div>
-
+      {/* Face avant */}
+      <div className="absolute inset-0 flex flex-col items-center justify-center text-white px-6 text-center">
+        <div className="text-5xl mb-3 drop-shadow">{icon}</div>
+        <h3 className="text-2xl font-bold tracking-wide">{title}</h3>
       </div>
+
+      {/* Slide arrière */}
+      <div className="absolute bottom-0 left-0 w-full bg-white text-[#1A4C8B] p-6 translate-y-full group-hover:translate-y-0 transition-all duration-500 shadow-inner">
+        <p className="text-sm leading-relaxed font-medium">
+          {description}
+        </p>
+      </div>
+
     </div>
   );
 }

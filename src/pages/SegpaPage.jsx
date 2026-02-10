@@ -153,7 +153,7 @@ export default function SegpaPage() {
 
 
         {/* Cartes de flip */}
-        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-12 p-12 mt-10">
+        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-12 p-12 mt-10 place-items-center">
 
             <FlipCards
                 frontColor="#1A4C8B"

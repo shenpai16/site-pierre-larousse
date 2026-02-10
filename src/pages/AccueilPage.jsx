@@ -28,7 +28,7 @@ export default function AccueilPage() {
             Nos sections
         </h2>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-2 gap-16 py-10">
+        <div className="grid md:grid-cols-2 lg:grid-cols-2 gap-16 py-10 place-items-center max-w-4xl mx-auto">
 
             <FlipCards frontColor="#1A4C8B" backColor="#C57F2E" title="SEGPA" description="Un accompagnement adapté pour la réussite de chacun." />
             <FlipCards frontColor="#1A4C8B" backColor="#C57F2E" title="Voie générale" description="Un enseignement complet pour préparer l’avenir." />
